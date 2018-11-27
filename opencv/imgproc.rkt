@@ -306,23 +306,23 @@ Scharr can be used only for the first dx or dy derivative |#
 (define-opencv-imgproc cvLinearPolar
   (_fun _pointer _pointer _CvPoint2D32f _double _int -> _void))
 
-#| Transforms the input image to compensate lens distortion |#
-(define-opencv-imgproc cvUndistort2
-  (_fun _pointer _pointer _pointer _pointer _pointer -> _void))
+;#| Transforms the input image to compensate lens distortion |#
+;(define-opencv-imgproc cvUndistort2
+;  (_fun _pointer _pointer _pointer _pointer _pointer -> _void))
 
-#| Computes transformation map from intrinsic camera parameters
-that can used by cvRemap |#
-(define-opencv-imgproc cvInitUndistortMap
-  (_fun _pointer _pointer _pointer _pointer -> _void))
+;#| Computes transformation map from intrinsic camera parameters
+;that can used by cvRemap |#
+;(define-opencv-imgproc cvInitUndistortMap
+;  (_fun _pointer _pointer _pointer _pointer -> _void))
 
-#| Computes undistortion+rectification map for a head of stereo camera |#
-(define-opencv-imgproc cvInitUndistortRectifyMap
-  (_fun _pointer _pointer _pointer _pointer _pointer _pointer -> _void))
+;#| Computes undistortion+rectification map for a head of stereo camera |#
+;(define-opencv-imgproc cvInitUndistortRectifyMap
+;  (_fun _pointer _pointer _pointer _pointer _pointer _pointer -> _void))
 
-#| Computes the original (undistorted) feature coordinates
-from the observed (distorted) coordinates |#
-(define-opencv-imgproc cvUndistortPoints
-  (_fun _pointer _pointer _pointer _pointer _pointer _pointer -> _void))
+;#| Computes the original (undistorted) feature coordinates
+;from the observed (distorted) coordinates |#
+;(define-opencv-imgproc cvUndistortPoints
+;  (_fun _pointer _pointer _pointer _pointer _pointer _pointer -> _void))
 
 #| creates structuring element used for morphological operations |#
 (define-opencv-imgproc cvCreateStructuringElementEx

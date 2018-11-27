@@ -670,11 +670,11 @@ Negative indices are supported and mean counting from the end
 
 
 #|************************ Adding own types **************************|#
-(define-opencv-core cvRegisterType
-  (_fun _pointer -> _void))
+;(define-opencv-core cvRegisterType
+;  (_fun _pointer -> _void))
 
-(define-opencv-core cvUnregisterType
-  (_fun _string -> _void))
+;(define-opencv-core cvUnregisterType
+;  (_fun _string -> _void))
 
 #| universal functions |#
 (define-opencv-core cvRelease
@@ -683,20 +683,20 @@ Negative indices are supported and mean counting from the end
 (define-opencv-core cvClone
   (_fun _pointer -> _pointer))
 
-#| simple API for reading/writing data |#
-(define-opencv-core cvSave
-  (_fun (filename struct-ptr (name #f) (comment #f) (attributes (cvAttrList))) ::
-        [filename : _file]
-        [struct-ptr : _pointer]
-        [name : _string]
-        [comment : _string]
-        [attributes : _CvAttrList]
-        -> _void))
+;#| simple API for reading/writing data |#
+;(define-opencv-core cvSave
+;  (_fun (filename struct-ptr (name #f) (comment #f) (attributes (cvAttrList))) ::
+;        [filename : _file]
+;        [struct-ptr : _pointer]
+;        [name : _string]
+;        [comment : _string]
+;        [attributes : _CvAttrList]
+;        -> _void))
 
-(define-opencv-core cvLoad
-  (_fun (filename (memstorage #f) (name #f) (real_name #f)) ::
-        [filename : _file]
-        [memstorage : _pointer]
-        [name : _string]
-        [real_name : _string]
-        -> _pointer))
+;(define-opencv-core cvLoad
+;  (_fun (filename (memstorage #f) (name #f) (real_name #f)) ::
+;        [filename : _file]
+;        [memstorage : _pointer]
+;        [name : _string]
+;        [real_name : _string]
+;        -> _pointer))

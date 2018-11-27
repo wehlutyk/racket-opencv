@@ -172,26 +172,26 @@
 ;; ?, any color
 (define+provide CV_LOAD_IMAGE_ANYCOLOR   4)
 
-#| load image from file
-iscolor can be a combination of above flags where CV_LOAD_IMAGE_UNCHANGED
-overrides the other flags
-using CV_LOAD_IMAGE_ANYCOLOR alone is equivalent to CV_LOAD_IMAGE_UNCHANGED
-unless CV_LOAD_IMAGE_ANYDEPTH is specified images are converted to 8bit
-|#  
-(define-opencv-highgui cvLoadImage
-  (_fun (filename (iscolor CV_LOAD_IMAGE_COLOR)) ::
-        (filename : _string)
-        (iscolor  : _int)
-        -> (r : (_ptr io _IplImage))
-        -> (ptr-ref r _IplImage)))
+;#| load image from file
+;iscolor can be a combination of above flags where CV_LOAD_IMAGE_UNCHANGED
+;overrides the other flags
+;using CV_LOAD_IMAGE_ANYCOLOR alone is equivalent to CV_LOAD_IMAGE_UNCHANGED
+;unless CV_LOAD_IMAGE_ANYDEPTH is specified images are converted to 8bit
+;|#  
+;(define-opencv-highgui cvLoadImage
+;  (_fun (filename (iscolor CV_LOAD_IMAGE_COLOR)) ::
+;        (filename : _string)
+;        (iscolor  : _int)
+;        -> (r : (_ptr io _IplImage))
+;        -> (ptr-ref r _IplImage)))
 
-(define-opencv-highgui cvLoadImageM
-  (_fun (filename (iscolor CV_LOAD_IMAGE_COLOR)) ::
-        (filename : _string)
-        (iscolor  : _int)
-        -> (r : (_ptr o _CvMat))))
+;(define-opencv-highgui cvLoadImageM
+;  (_fun (filename (iscolor CV_LOAD_IMAGE_COLOR)) ::
+;        (filename : _string)
+;        (iscolor  : _int)
+;        -> (r : (_ptr o _CvMat))))
 
-(define+provide imread cvLoadImageM)
+;(define+provide imread cvLoadImageM)
 
 (define+provide CV_IMWRITE_JPEG_QUALITY 1)
 (define+provide CV_IMWRITE_PNG_COMPRESSION 16)
@@ -203,34 +203,34 @@ unless CV_LOAD_IMAGE_ANYDEPTH is specified images are converted to 8bit
 ;; 1) one of the three constants above
 ;; 2) compression value
 ;; 3) no idea
-(define-opencv-highgui cvSaveImage
-  (_fun (filename image (params #f)) ::
-        (filename : _file)
-        (image : _pointer)
-        (params : _pointer)
-        -> (r : _int)
-        -> (check-return r 'cvSaveImage)))
+;(define-opencv-highgui cvSaveImage
+;  (_fun (filename image (params #f)) ::
+;        (filename : _file)
+;        (image : _pointer)
+;        (params : _pointer)
+;        -> (r : _int)
+;        -> (check-return r 'cvSaveImage)))
 
-(define+provide (imwrite filename img (params #f))
-  (cvSaveImage filename img params))
+;(define+provide (imwrite filename img (params #f))
+;  (cvSaveImage filename img params))
 
 ;; decode image stored in the buffer
-(define-opencv-highgui cvDecodeImage
-  (_fun _pointer _int -> _pointer))
+;(define-opencv-highgui cvDecodeImage
+;  (_fun _pointer _int -> _pointer))
 
-(define-opencv-highgui cvDecodeImageM
-  (_fun _pointer _int -> _pointer))
+;(define-opencv-highgui cvDecodeImageM
+;  (_fun _pointer _int -> _pointer))
 
 ;; encode image and store the result as a byte vector (single-row 8uC1 matrix)
-(define-opencv-highgui cvEncodeImage
-  (_fun _string _pointer _pointer -> _pointer))
+;(define-opencv-highgui cvEncodeImage
+;  (_fun _string _pointer _pointer -> _pointer))
 
 (define+provide CV_CVTIMG_FLIP      1)
 (define+provide CV_CVTIMG_SWAP_RB   2)
 
 ;; utility function: convert one image to another with optional vertical flip
-(define-opencv-highgui cvConvertImage
-  (_fun _pointer _pointer _int -> _void))
+;(define-opencv-highgui cvConvertImage
+;  (_fun _pointer _pointer _int -> _void))
 
 ;; (define+provide (convertImage an-image ()
 ;;   (define+provide out-image (cvCreateImage
@@ -261,10 +261,10 @@ unless CV_LOAD_IMAGE_ANYDEPTH is specified images are converted to 8bit
 (define+provide cvvResizeWindow cvResizeWindow)
 (define+provide cvvDestroyWindow cvDestroyWindow)
 (define+provide cvvCreateTrackbar cvCreateTrackbar)
-(define+provide (cvvLoadImage name) (cvLoadImage name 1))
-(define+provide cvvSaveImage cvSaveImage)
+;(define+provide (cvvLoadImage name) (cvLoadImage name 1))
+;(define+provide cvvSaveImage cvSaveImage)
 (define+provide cvvAddSearchPath cvAddSearchPath)
 (define+provide (cvvWaitKey name) (cvWaitKey 0))
 (define+provide (cvvWaitKeyEx name delay) (cvWaitKey delay))
-(define+provide cvvConvertImage cvConvertImage)
+;(define+provide cvvConvertImage cvConvertImage)
 (define+provide HG_AUTOSIZE CV_WINDOW_AUTOSIZE)
